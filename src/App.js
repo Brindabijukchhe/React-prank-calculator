@@ -8,7 +8,7 @@ const operators = ["%", "/","*", "-","+"];
 const App = () => {
 
 const [strToDisplay, setStrToDisplay] = useState ("");
-const [lastOperators, setStrToOperators] = useState ("");
+const [lastOperator, setlastOperator] = useState ("");
 
 const  handleOnButtonClick = (val) => {
   console.log(val);
@@ -31,9 +31,50 @@ const  handleOnButtonClick = (val) => {
 
     }
     return setStrToDisplay(eval(temStr).toString());
+  
     
   }
 
+ if (operators.includes(val)) {
+  console.log("you clicked operators");
+  if (!strToDisplay) {
+    return;
+  }
+ let temStr = strToDisplay
+  const lastChar = strToDisplay[strToDisplay.length -1];
+
+  if (operators.includes (lastChar)){
+    temStr = strToDisplay.slice (0, -1);
+
+  }
+  setStrToDisplay(temStr +val);
+  setlastOperator(val);
+  return;
+ }
+
+
+//  dot 
+
+if (val === "."){
+if (lastOperator){
+
+  const operatorIndex = strToDisplay.lastIndexOf
+  (lastOperator)
+
+  const numbeAfterlastOperator = strToDisplay.slice
+  (operatorIndex);
+
+  if(numbeAfterlastOperator.includes (".")){
+    return;
+  }
+}
+if (!lastOperator && strToDisplay.includes(".")){
+  return;
+}
+
+
+}
+ setStrToDisplay(strToDisplay+val);
   // if (val === "lastChar"){
   //   return setStrToDisplay(strToDisplay.slice (0,-1));
   // }
