@@ -1,38 +1,181 @@
-.App {
-  text-align: center;
+body{
+  margin: 0;
+  font-size: 1.1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  box-sizing:border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.wrapper{
+  min-height: 150vh;
+  background: linear-gradient(180deg, #F7DCDC 0%, #E46767 0.01%,
+   rgba(188, 185, 108, 0.682292) 50%, rgba(253, 33, 112, 0.38) 100%);
+  ;
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+
+
+
+}
+.calculator{
+background: rgba(239, 37, 168, 0.158);
+backdrop-filter: blur(10px);
+
+width:400px;
+color: black;
+padding: 2rem 1.5rem;
+border-radius: 5px;
+display: grid;
+gap: 1rem;
+grid-template-areas: 
+"display display display display"
+"ac c perc divide"
+"btn7 btn8 btn9 btnx"
+"btn4 btn5 btn6 minus"
+"btn1 btn2 btn3 plus"
+"btn0 btn0 dot equals";
+
+}
+
+
+.calculator div{
+  height: 50px;
+  /* width: 50px; */
+  background: rgba(158, 57, 134, 0.614);
+  filter: drop-shadow(-12px 12px 14px rgba(0, 0, 0, 0.25));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+
+
+
+.calculator div.display{
+  padding: 1rem;
+  background: white;
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Orbitron', sans-serif;
+
+}
+
+/* change */
+.calculator div:hover{
+  background: rgb(181, 58, 79);
   color: white;
+  transition: 0.2s;
+}
+.calculator div.display:hover{
+  background: white;
+
+ 
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.display{
+  grid-area:display;
+ 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ 
+.btn-ac{
+  grid-area:ac;
+  
+
+}
+.btn-c{
+  grid-area:c;
+  
+
+}
+.btn-perc{
+  grid-area:perc;
+
+
+}
+.btn-divide{
+  grid-area:divide;
+  
+
+}
+.btn-7{
+  grid-area:btn7;
+  
+
+}
+.btn-8{
+  grid-area:btn8;
+
+}
+.btn-9{
+  grid-area:btn9;
+
+}
+.btn-x{
+  grid-area:btnx;
+
+}
+.btn-4{
+  grid-area:btn4;
+
+}
+.btn-5{
+  grid-area:btn5;
+
+}
+.btn-6{
+  grid-area:btn6;
+
+}
+.btn-minus{
+  grid-area:minus;
+
+}
+.btn-1{
+  grid-area:btn1;
+
+}
+.btn-2{
+  grid-area:btn2;
+
+}
+.btn-3{
+  grid-area:btn3;
+
+}
+.btn-plus{
+  grid-area:plus;
+
+}
+.btn0{
+  grid-area:btn0;
+
+
+}
+.btn-dot{
+  grid-area:dot;
+
+}
+.btn-equals{
+  grid-area: equals;
+
+}
+.circle{
+  background: linear-gradient(to right, rgba(228, 71, 189, 0.742), rgba(203, 63, 131, 0.66));
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+
+  position: relative;
+  left: 60px;
+  top: 220px;
+
 }

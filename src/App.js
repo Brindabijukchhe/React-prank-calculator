@@ -1,23 +1,64 @@
-import logo from './logo.svg';
+import {useState} from "react";
 import './App.css';
+import { BtnArea } from './components/BtnArea';
+import {Display} from "./components/Display";
 
-function App() {
+const operators = ["%", "/","*", "-","+"];
+
+const App = () => {
+
+const [strToDisplay, setStrToDisplay] = useState ("");
+const [lastOperators, setStrToOperators] = useState ("");
+
+const  handleOnButtonClick = (val) => {
+  console.log(val);
+  if (val === "C"){
+    return setStrToDisplay(strToDisplay.slice (0,-1));
+  }
+
+
+  if (val === "AC"){
+    return setStrToDisplay("");
+  }
+
+  if (val === "="){
+
+    const lastChar = strToDisplay [strToDisplay.length -1];
+
+    let temStr =strToDisplay
+    if (operators.includes (lastChar)){
+      temStr=strToDisplay.slice (0,-1);
+
+    }
+    return setStrToDisplay(eval(temStr).toString());
+    
+  }
+
+  // if (val === "lastChar"){
+  //   return setStrToDisplay(strToDisplay.slice (0,-1));
+  // }
+
+  setStrToDisplay (strToDisplay+val);
+};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="wrapper">
+   
+    
+        <div className="calculator">
+           
+           
+            {/* <div className="display">0.00 </div> */}
+
+         <Display strToDisplay = {strToDisplay}/>
+         <BtnArea handleOnButtonClick={handleOnButtonClick}/>
+        
+    </div>
+   
+      
+
+    </div>  
     </div>
   );
 }
